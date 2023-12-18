@@ -1,4 +1,6 @@
 @use 'variables.scss' as *;
+@use 'layout.scss' as *;
+@use 'utilities.scss' as *;
 
 * {
     box-sizing: border-box;
@@ -7,6 +9,14 @@
 }
 
 body {
+    margin: 8px;
+
     background-color: $brown;
     color: #ffffff;
+}
+
+svg {
+    width: 24px;
+
+    fill: #ffffff;
 }
