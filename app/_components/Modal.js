@@ -1,4 +1,4 @@
-const Modal = ({ isOpen, toggleModal }) => {
+const Modal = ({ isOpen, toggleModal, children }) => {
     return (
         <>
             <div
@@ -9,7 +9,9 @@ const Modal = ({ isOpen, toggleModal }) => {
             <div
                 className={`modal-content ${
                     isOpen ? 'modal-content-open' : 'modal-content-close'
-                }`}></div>
+                }`}>
+                {children}
+            </div>
         </>
     );
 };

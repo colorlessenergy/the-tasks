@@ -16,11 +16,18 @@ body {
     color: #ffffff;
 }
 
+input {
+    border: 0;
+
+    font-family: inherit;
+}
+
 button {
     border: 0;
 
     background-color: transparent;
     cursor: pointer;
+    font-family: inherit;
 }
 
 svg {

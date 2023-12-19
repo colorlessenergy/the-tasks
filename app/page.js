@@ -28,7 +28,19 @@ export default function Home() {
                 </svg>
             </button>
 
-            <Modal isOpen={isModalOpen} toggleModal={toggleModal} />
+            <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+                <form className="add-item-form">
+                    <label htmlFor="add-list" className="mb-05">
+                        list
+                    </label>
+                    <input
+                        type="text"
+                        id="add-list"
+                        className="add-item-form-input"
+                    />
+                    <button className="add-item-form-button">add</button>
+                </form>
+            </Modal>
         </div>
     );
 }
