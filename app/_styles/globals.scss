@@ -1,5 +1,6 @@
 @use 'variables.scss' as *;
 @use 'layout.scss' as *;
+@use 'module.scss' as *;
 @use 'utilities.scss' as *;
 
 * {
@@ -13,6 +14,13 @@ body {
 
     background-color: $brown;
     color: #ffffff;
+}
+
+button {
+    border: 0;
+
+    background-color: transparent;
+    cursor: pointer;
 }
 
 svg {

@@ -1,0 +1,15 @@
+@use 'variables.scss' as *;
+
+.add-item-button {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+
+    background-color: $blue;
+}
