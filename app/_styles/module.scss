@@ -67,3 +67,14 @@
 .button-svg {
     height: 24px;
 }
+
+.task-checkbox {
+    border: 1px solid #ffffff;
+    display: block;
+    height: 12px;
+    width: 12px;
+}
+
+input[type='checkbox']:checked ~ .task-checkbox {
+    background-color: #ffffff;
+}

@@ -32,3 +32,17 @@
 .tasks-header svg {
     fill: $light-blue;
 }
+
+.task-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding: 8px;
+
+    background-color: $light-brown-2;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+}
