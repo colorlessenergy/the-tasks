@@ -35,3 +35,20 @@ svg {
 
     fill: #ffffff;
 }
+
+@media (min-width: 800px) {
+    body {
+        margin: 8px auto;
+        max-width: 800px;
+    }
+
+    .add-item-button {
+        right: 29%;
+    }
+
+    .modal-content {
+        margin: 0 auto;
+        right: 0;
+        max-width: 800px;
+    }
+}
