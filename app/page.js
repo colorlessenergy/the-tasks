@@ -10,7 +10,13 @@ import { getLists } from './_utilities/lists';
 export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const toggleModal = () => {
-        setIsModalOpen(previousIsModalOpen => !previousIsModalOpen);
+        setIsModalOpen(previousIsModalOpen => {
+            if (previousIsModalOpen === true) {
+                setIsEditingList(false);
+            }
+
+            return !previousIsModalOpen;
+        });
     };
 
     const [lists, setLists] = useState([]);
@@ -60,12 +66,14 @@ export default function Home() {
             </button>
 
             <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
-                <Form
-                    setLists={setLists}
-                    toggleModal={toggleModal}
-                    isEditingList={isEditingList}
-                    setIsEditingList={setIsEditingList}
-                />
+                {isModalOpen ? (
+                    <Form
+                        setLists={setLists}
+                        toggleModal={toggleModal}
+                        isEditingList={isEditingList}
+                        setIsEditingList={setIsEditingList}
+                    />
+                ) : null}
             </Modal>
         </div>
     );
