@@ -1,3 +1,5 @@
+@use 'variables.scss' as *;
+
 .mb-05 {
     margin-bottom: 4px;
 }
@@ -8,4 +10,8 @@
 
 .mb-2 {
     margin-bottom: 16px;
+}
+
+.bg-color-red {
+    background: $red;
 }

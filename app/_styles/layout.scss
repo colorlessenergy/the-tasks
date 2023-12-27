@@ -12,7 +12,12 @@
     justify-content: space-between;
 }
 
-.add-item-form {
+.item-form {
     display: flex;
     flex-direction: column;
+}
+
+.item-form-buttons {
+    display: flex;
+    justify-content: space-between;
 }
