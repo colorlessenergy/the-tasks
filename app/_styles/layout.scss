@@ -21,3 +21,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+.tasks-header {
+    display: flex;
+    align-items: center;
+
+    color: $light-blue;
+}
+
+.tasks-header svg {
+    fill: $light-blue;
+}
