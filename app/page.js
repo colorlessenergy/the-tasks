@@ -36,7 +36,7 @@ export default function Home() {
                 return (
                     <div key={index} className="list mb-2">
                         <div className="list-header mb-1">
-                            {list.name}
+                            <a href={`/list/${index}`}>{list.name}</a>
 
                             <button
                                 onClick={() =>
@@ -51,10 +51,10 @@ export default function Home() {
                             </button>
                         </div>
 
-                        <div>
+                        <a href={`/list/${index}`}>
                             {list.tasks.length}{' '}
                             {list.tasks.length > 1 ? 'tasks' : 'task'}
-                        </div>
+                        </a>
                     </div>
                 );
             })}
