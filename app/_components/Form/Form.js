@@ -7,10 +7,19 @@ const Form = ({
     toggleModal,
     isEditingList,
     setIsEditingList,
+    isEditingTask,
+    setIsEditingTask,
     type
 }) => {
     if (type === 'task') {
-        return <TaskForm setList={setList} toggleModal={toggleModal} />;
+        return (
+            <TaskForm
+                setList={setList}
+                toggleModal={toggleModal}
+                isEditingTask={isEditingTask}
+                setIsEditingTask={setIsEditingTask}
+            />
+        );
     }
 
     return (

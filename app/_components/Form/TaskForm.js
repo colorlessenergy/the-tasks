@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const TaskForm = ({ setList, toggleModal }) => {
+const TaskForm = ({
+    setList,
+    toggleModal,
+    isEditingTask,
+    setIsEditingTask
+}) => {
     const pathname = usePathname();
     const listIndex = pathname.split('/')[2];
 
@@ -16,11 +21,20 @@ const TaskForm = ({ setList, toggleModal }) => {
         let lists = JSON.parse(localStorage.getItem('lists'));
         let id = JSON.parse(localStorage.getItem('id'));
 
-        lists[listIndex].tasks.push({
-            id: id,
-            task: inputValue,
-            done: false
-        });
+        if (isEditingTask) {
+            lists[listIndex].tasks[isEditingTask.index] = {
+                id: isEditingTask.id,
+                task: inputValue,
+                done: isEditingTask.done
+            };
+            setIsEditingTask(false);
+        } else {
+            lists[listIndex].tasks.push({
+                id: id,
+                task: inputValue,
+                done: false
+            });
+        }
 
         localStorage.setItem('lists', JSON.stringify(lists));
         setList(lists[listIndex]);
@@ -30,6 +44,23 @@ const TaskForm = ({ setList, toggleModal }) => {
         setInputValue('');
         toggleModal();
     };
+
+    const handleDeleteTask = () => {
+        let lists = JSON.parse(localStorage.getItem('lists'));
+        lists[listIndex].tasks.splice(isEditingTask.index, 1);
+        localStorage.setItem('lists', JSON.stringify(lists));
+        setList(lists[listIndex]);
+
+        setIsEditingTask(false);
+        setInputValue('');
+        toggleModal();
+    };
+
+    useEffect(() => {
+        if (isEditingTask.task) {
+            setInputValue(isEditingTask.task);
+        }
+    }, [isEditingTask]);
 
     const inputRef = useRef();
     useEffect(() => {
@@ -50,7 +81,20 @@ const TaskForm = ({ setList, toggleModal }) => {
                 className="item-form-input"
             />
 
-            <button className="item-form-button">add</button>
+            {isEditingTask ? (
+                <div className="item-form-buttons">
+                    <button
+                        className="item-form-button bg-color-red"
+                        onClick={handleDeleteTask}
+                        type="button">
+                        delete
+                    </button>
+
+                    <button className="item-form-button">edit</button>
+                </div>
+            ) : (
+                <button className="item-form-button">add</button>
+            )}
         </form>
     );
 };
