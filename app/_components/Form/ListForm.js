@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 
-const Form = ({ setLists, toggleModal, isEditingList, setIsEditingList }) => {
+const ListForm = ({
+    setLists,
+    toggleModal,
+    isEditingList,
+    setIsEditingList
+}) => {
     const [inputValue, setInputValue] = useState('');
     const handleChange = event => {
         setInputValue(event.currentTarget.value);
@@ -77,5 +82,4 @@ const Form = ({ setLists, toggleModal, isEditingList, setIsEditingList }) => {
         </form>
     );
 };
-
-export default Form;
+export default ListForm;

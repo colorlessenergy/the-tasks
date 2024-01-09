@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
+import Modal from '@/app/_components/Modal';
+import Form from '@/app/_components/Form/Form';
+
 import { getLists } from '@/app/_utilities/lists';
 
 export default function List() {
@@ -14,6 +17,11 @@ export default function List() {
     useEffect(() => {
         setList(getLists()[listIndex]);
     }, []);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const toggleModal = () => {
+        setIsModalOpen(previousIsModalOpen => !previousIsModalOpen);
+    };
 
     if (!list) return;
 
@@ -56,6 +64,22 @@ export default function List() {
                     );
                 })}
             </div>
+
+            <button onClick={toggleModal} className="add-item-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+                </svg>
+            </button>
+
+            <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+                {isModalOpen ? (
+                    <Form
+                        setList={setList}
+                        toggleModal={toggleModal}
+                        type="task"
+                    />
+                ) : null}
+            </Modal>
         </div>
     );
 }

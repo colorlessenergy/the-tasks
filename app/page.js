@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import Modal from './_components/Modal';
-import Form from './_components/Form';
+import Form from './_components/Form/Form';
 
 import { getLists } from './_utilities/lists';
 
