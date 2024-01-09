@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 const TaskForm = ({ setList, toggleModal }) => {
@@ -31,6 +31,11 @@ const TaskForm = ({ setList, toggleModal }) => {
         toggleModal();
     };
 
+    const inputRef = useRef();
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
     return (
         <form onSubmit={handleSubmit} className="item-form">
             <label htmlFor="add-task" className="mb-05">
@@ -41,6 +46,7 @@ const TaskForm = ({ setList, toggleModal }) => {
                 value={inputValue}
                 onChange={handleChange}
                 id="add-task"
+                ref={inputRef}
                 className="item-form-input"
             />
 

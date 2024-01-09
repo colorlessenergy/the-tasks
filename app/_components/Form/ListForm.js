@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const ListForm = ({
     setLists,
@@ -52,6 +52,11 @@ const ListForm = ({
         }
     }, [isEditingList]);
 
+    const inputRef = useRef();
+    useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
     return (
         <form onSubmit={handleSubmit} className="item-form">
             <label htmlFor="add-list" className="mb-05">
@@ -62,6 +67,7 @@ const ListForm = ({
                 value={inputValue}
                 onChange={handleChange}
                 id="add-list"
+                ref={inputRef}
                 className="item-form-input"
             />
 
