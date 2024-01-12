@@ -20,7 +20,13 @@ export default function List() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const toggleModal = () => {
-        setIsModalOpen(previousIsModalOpen => !previousIsModalOpen);
+        setIsModalOpen(previousIsModalOpen => {
+            if (previousIsModalOpen === true) {
+                setIsEditingTask(false);
+            }
+
+            return !previousIsModalOpen;
+        });
     };
 
     const [isEditingTask, setIsEditingTask] = useState(false);

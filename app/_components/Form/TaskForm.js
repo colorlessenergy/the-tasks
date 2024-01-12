@@ -51,7 +51,6 @@ const TaskForm = ({
         localStorage.setItem('lists', JSON.stringify(lists));
         setList(lists[listIndex]);
 
-        setIsEditingTask(false);
         setInputValue('');
         toggleModal();
     };

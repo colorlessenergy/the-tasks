@@ -41,7 +41,6 @@ const ListForm = ({
         localStorage.setItem('lists', JSON.stringify(lists));
         setLists(lists);
 
-        setIsEditingList(false);
         setInputValue('');
         toggleModal();
     };
