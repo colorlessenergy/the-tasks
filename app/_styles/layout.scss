@@ -1,15 +1,14 @@
 @use 'variables.scss' as *;
 
 .list {
-    border-bottom: 1px solid $light-brown;
-
+    border-bottom: 2px solid $light-brown;
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 16px;
 }
 
 .list-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .item-form {
