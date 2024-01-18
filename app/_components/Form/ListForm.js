@@ -14,6 +14,10 @@ const ListForm = ({
     const handleSubmit = event => {
         event.preventDefault();
 
+        if (inputValue === '') {
+            return;
+        }
+
         let lists = JSON.parse(localStorage.getItem('lists'));
         if (isEditingList) {
             lists[isEditingList.index] = {

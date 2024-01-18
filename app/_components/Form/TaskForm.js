@@ -18,6 +18,10 @@ const TaskForm = ({
     const handleSubmit = event => {
         event.preventDefault();
 
+        if (inputValue === '') {
+            return;
+        }
+
         let lists = JSON.parse(localStorage.getItem('lists'));
         let id = JSON.parse(localStorage.getItem('id'));
 
